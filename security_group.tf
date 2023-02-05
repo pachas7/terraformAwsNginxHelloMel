@@ -2,7 +2,7 @@ resource "aws_security_group" "allow_access" {
   name        = "allow_access"
   description = "Allow inbound traffic"
 
-dynamic "ingress" {
+  dynamic "ingress" {
     for_each = var.inbound_port
     iterator = port
     content {
@@ -11,8 +11,8 @@ dynamic "ingress" {
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
-}
-  
+  }
+
   egress {
     from_port        = 0
     to_port          = 0
