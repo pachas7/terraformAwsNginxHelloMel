@@ -17,7 +17,7 @@ resource "aws_instance" "hello-world" {
    connection {
    type     = "ssh"
    user     = "ec2-user"
-   private_key = file("./key_pair/terraform.pem")
+   private_key = var.ssh_key
    host     = self.public_ip
     }
 
